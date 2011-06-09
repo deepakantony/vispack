@@ -1,0 +1,76 @@
+\begin{thebibliography}{10}
+
+\bibitem{lapack}
+Lapack++(v1.1).
+\newblock http://math.nist.gov/lapack++/.
+
+\bibitem{Baccar96}
+M.~Baccar, L.~A. Gee, R.~C. Gonzalez, and M.~A. Abidi.
+\newblock Segmentation of range images via data fusion and morphological
+  watersheds.
+\newblock {\em Pattern Recognition}, 29(10):1671--1685, 1996.
+
+\bibitem{bre01}
+D.~Breen and R.~Whitaker.
+\newblock A level-set approach to 3d shape metamorphosis.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics},
+  7(2):173--192, 2001.
+
+\bibitem{Canny86}
+J.~Canny.
+\newblock A computational approach to edge detection.
+\newblock {\em IEEE Trans. on Pattern Analysis and Machine Intelligence},
+  8(6):679--698, 1986.
+
+\bibitem{Lindeberg90}
+Tony Lindeberg.
+\newblock Scale-space for discrete signals.
+\newblock {\em IEEE Trans. on Pattern Analysis and Machine Intelligence},
+  12(3):234--254, 1990.
+
+\bibitem{Lorenson82}
+W.~Lorenson and H.~Cline.
+\newblock Marching cubes: A high resolution 3d surface construction algorithm.
+\newblock {\em Computer Graphics}, 21(4):163--169, 1982.
+
+\bibitem{meyers}
+Scott Meyers.
+\newblock {\em Effective C++}.
+\newblock Addison Wesley Longman, 2 edition, 1998.
+
+\bibitem{osh88}
+S.~Osher and J.~Sethian.
+\newblock Fronts propogating with curvature-dependent speed: Algorithms based
+  on {H}amilton-{J}acobi formulations.
+\newblock {\em Journal of Computational Physics}, 79:12--49, 1988.
+
+\bibitem{set96}
+J.~A. Sethian.
+\newblock {\em Level Set Methods: Evolving Interfaces in Gometry, Fluid
+  Mechanics, Computer Vision, and Material Sciences}.
+\newblock Cambridge University Press, 1996.
+
+\bibitem{whi98}
+R.~Whitaker and D.~Breen.
+\newblock Level-set models for the deformation of solid objects.
+\newblock In {\em The Third International Workshop on Implicit Surfaces}, pages
+  19--35. Eurographics, 1998.
+
+\bibitem{Whitaker92b}
+R.~T. Whitaker.
+\newblock Geometry-limited diffusion in the characterization of geometric
+  patches in images.
+\newblock {\em CVGIP: Image Understanding}, 57(1):111--120, 1993.
+
+\bibitem{whi98b}
+R.~T. Whitaker.
+\newblock A level-set approach to 3{D} reconstruction from range data.
+\newblock {\em International Journal of Computer Vision}, October(3):203--231,
+  1998.
+
+\bibitem{Whitaker92a}
+R.~T. Whitaker and Stephen~M. Pizer.
+\newblock A multi-scale approach to nonuniform diffusion.
+\newblock {\em CVGIP: Image Understanding}, 57(1):99--110, 1993.
+
+\end{thebibliography}

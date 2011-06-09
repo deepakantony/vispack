@@ -1,0 +1,90 @@
+// params.txt 
+// Sarah Geneser
+// 05-23-03
+// parameter file to run mutual information registration with affine 2D transformations
+
+
+//reference file.  All images are registered to this space
+(REF_FILE "/scratch/research/perfusion/images/Float/stress.slice6.0.rawFloat")
+
+//number of images to be registered to the reference file
+(NUM_REGS 1)
+
+//number of subsamples
+(SUBSAMPLES 2)
+
+//names of the images to be registered
+(TEST_FILE_0 "/scratch/research/perfusion/images/Float/stress.slice6.5.rawFloat")
+(TEST_FILE_1 "/scratch/research/perfusion/images/Float/stress.slice6.10.rawFloat")
+
+//directory to place the resulting registration parameter files
+(OUTPUT_DIR "/scratch/research/perfusion/registrations")
+	  
+// Mutual Information Parameters
+////////////////////////////////
+
+// 1D covariance
+(PHI_V 0.4)
+// 2D covariance
+(PHI_UV 2 2
+ 0.4 0 
+ 0 0.4
+)
+// number of random samples to compute 
+(SAMPLES 50)
+// lower corner of region of interest
+(LOWER_ROI 3
+ 65 75 0
+)
+// upper corner of region of interest
+(UPPER_ROI 3
+170 160 0
+)
+
+// levenberg-marquardt optimization
+///////////////////////////////////
+// initial step size
+(LM_LAMBDA .1)
+// number of times levenberg-marquardt optimization is 
+// completed (several times is usually helpful)
+(LM_RUNS 1)
+(LM_ITERS 1)
+
+
+// gradient descent optimization subsequent to l-m
+//////////////////////////////////////////////////
+// step size for g.d.
+(GD_LAMBDA .001)
+// iterations for g.d.
+(GD_ITERS 5)
+
+
+
+
+// for Translate2DTransform
+//(INIT_TRANS 3
+//10 10 0
+//)
+//(PARAM_WEIGHTS 3
+//1 1 1
+//)
+
+// for EulerRigidTransform
+//(INIT_TRANS 6
+// 0 0 0 0 0 0
+//)
+//(PARAM_WEIGHTS 6
+//1 1 1 1 1 1 
+//)
+
+// for AffineTransform
+(INIT_TRANS 12
+1 0 0 0 
+0 1 0 0
+0 0 1 0
+)
+(PARAM_WEIGHTS 12
+1 1 1 1 
+1 1 1 1
+1 1 1 1
+)

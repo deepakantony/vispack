@@ -1,0 +1,17 @@
+
+
+This directory is meant to go into "myapps" and be compiled withing
+vispack using CMake.
+
+It contains the following files:
+
+* README --- this file
+* CMakeLists.txt --- define the build
+* transform.h transform.cxx --- define the transform and warp objects
+* testtransform.cxx --- an executable that tests the transform and warp
+	objects with rotation
+* testparams.cxx --- an executable that reads in the parameter file in
+	accordance with the specification of the mosaic project
+* mosaicexample  --- a directory containing a mosiac example, with a
+parameter file (incl. correspondences) and images
+
