@@ -1,1 +1,0 @@
-SUBDIRS(rbfmodel mosaic volreg)
