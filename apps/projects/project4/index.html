@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Project 4 - Image Processing - CS6640 - Deepak Antony</title></head>
+<body><big><big><big>Project 4 - Image Processing - CS6640</big><br><small>Deepak Antony<br>dab@cs.utah.edu<br>U0561285</small></big></big><br><hr style="width: 100%; height: 2px;"><big><span style="font-weight: bold;">Running the project</span></big><p style="margin-bottom: 0in;">The project was created in
+the vispack tree as required and is compiled same way vispack-build
+directory is compiled.&nbsp;</p><p style="margin-bottom: 0in;">To
+run&nbsp;project4 go to the directory where the executable is and type
+./project4 &lt;imagelist&gt;. The mosaiced image is generated in "output_mosaic.fts".</p><p style="margin-bottom: 0in;">The
+user will be prompted to enter a threshold value. This value is usually
+a value close to zero. I used 0.001 for the given image set and 0.0004
+for my image set.</p><br>Here's an example of sample run (numbers/words in bold &amp; underlined are user inputs):<br><br><small style="font-style: italic; font-family: Courier New,Courier,monospace;">beast@beast-desktop:~/Desktop/vispack-build/apps/projects/project4$ <span style="font-weight: bold; text-decoration: underline;">./project4 0001.005.tif 0001.006.tif 0001.000.tif 0001.001.tif 0001.002.tif 0001.004.tif</span><br>Reading 0001.005.tif<br>Reading 0001.006.tif<br>Reading 0001.000.tif<br>Reading 0001.001.tif<br>Reading 0001.002.tif<br>Reading 0001.004.tif<br>Enter threshold: <span style="font-weight: bold; text-decoration: underline;">0.0</span><br>Padding done<br>0 to 1 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.00365151, PC - min: -0.000523575<br>PC - average: 9.5366e-07<br>Position: (1021, 403)<br>0 to 2 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.00243631, PC - min: -0.000522514<br>PC - average: 9.53681e-07<br>Position: (362, 653)<br>0 to 3 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.0076929, PC - min: -0.000508647<br>PC - average: 9.53676e-07<br>Position: (360, 5)<br>0 to 4 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.0014995, PC - min: -0.000475505<br>PC - average: 9.53668e-07<br>Position: (360, 409)<br>0 to 5 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.00577917, PC - min: -0.000459942<br>PC - average: 9.5368e-07<br>Position: (7, 647)<br>1 to 2 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.000522331, PC - min: -0.000596368<br>PC - average: 9.53665e-07<br>Position: (42, 76)<br>1 to 3 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.00146263, PC - min: -0.000548349<br>PC - average: 9.5368e-07<br>Position: (362, 625)<br>1 to 4 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.00618721, PC - min: -0.000602278<br>PC - average: 9.53666e-07<br>Position: (361, 6)<br>1 to 5 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.000522892, PC - min: -0.000555018<br>PC - average: 9.53684e-07<br>Position: (78, 913)<br>2 to 3 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.00617163, PC - min: -0.000474291<br>PC - average: 9.53681e-07<br>Position: (1022, 376)<br>2 to 4 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.000576967, PC - min: -0.000536034<br>PC - average: 9.53679e-07<br>Position: (3, 30)<br>2 to 5 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.00814104, PC - min: -0.00052811<br>PC - average: 9.53666e-07<br>Position: (669, 1018)<br>3 to 4 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.00406847, PC - min: -0.000595663<br>PC - average: 9.53693e-07<br>Position: (1023, 404)<br>3 to 5 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.00230506, PC - min: -0.000528093<br>PC - average: 9.53667e-07<br>Position: (670, 642)<br>4 to 5 : find peak<br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>w and h1024 1024 <br>PC - max: 0.000552222, PC - min: -0.000584506<br>PC - average: 9.53652e-07<br>Position: (72, 985)<br>Translation matrix:<br>6 6<br>0 1 1 1 1 1 <br>0 0 1 1 1 1 <br>0 0 0 1 1 1 <br>0 0 0 0 1 1 <br>0 0 0 0 0 1 <br>0 0 0 0 0 0 <br><br>Initializing the transformations<br>Creating perspective transformation from image 0 to image 1<br>Creating perspective transformation from image 1 to image 0<br>Creating perspective transformation from image 0 to image 2<br>Creating perspective transformation from image 2 to image 0<br>Creating perspective transformation from image 0 to image 3<br>Creating perspective transformation from image 3 to image 0<br>Creating perspective transformation from image 0 to image 4<br>Creating perspective transformation from image 4 to image 0<br>Creating perspective transformation from image 0 to image 5<br>Creating perspective transformation from image 5 to image 0<br>Creating perspective transformation from image 1 to image 2<br>Creating perspective transformation from image 2 to image 1<br>Creating perspective transformation from image 1 to image 3<br>Creating perspective transformation from image 3 to image 1<br>Creating perspective transformation from image 1 to image 4<br>Creating perspective transformation from image 4 to image 1<br>Creating perspective transformation from image 1 to image 5<br>Creating perspective transformation from image 5 to image 1<br>Creating perspective transformation from image 2 to image 3<br>Creating perspective transformation from image 3 to image 2<br>Creating perspective transformation from image 2 to image 4<br>Creating perspective transformation from image 4 to image 2<br>Creating perspective transformation from image 2 to image 5<br>Creating perspective transformation from image 5 to image 2<br>Creating perspective transformation from image 3 to image 4<br>Creating perspective transformation from image 4 to image 3<br>Creating perspective transformation from image 3 to image 5<br>Creating perspective transformation from image 5 to image 3<br>Creating perspective transformation from image 4 to image 5<br>Creating perspective transformation from image 5 to image 4<br>Done setting up transformations from the initial values<br>Calling dijkstras<br>Dijkstras Initialization.<br>Dijkstras main loop.<br>Done with executing dijkstras algorithm<br>Shortest paths array: -1 0 0 0 0 0 <br>Done initializing the required transformations.<br>Starting contrast correction<br>Ending contrast correction<br>Finding the image size....<br>MinX: -362<br>MinY: -409<br>MaxX: 511<br>MaxY: 885<br>Mosaiced image written to output_mosaic2.fts<br><br></small><br><br><big><span style="font-weight: bold;">Code organization</span></big><br><ul><li>transform.h
+and transform.cxx contains transformation classes used for image
+mosaicing. Also contains the cascading class, which cascades more than
+one transformations.</li><li>mosaic.cxx
+contains the class ImageMosaic which takes in translations, images,
+number of images, output file name and translation matrix as the input.
+All the initialization and construction of the mosaiced
+image is done here. initTransformations() and computeMosaic() are main
+functions in this class. The algorithm is described below.</li><li>project4.cxx
+contains functions to perform the fourier transform (along with
+inverse), buttersworth low pass filter, getting the phase correlation
+and finding the peak in the phase correlation. This function calls
+mosaic class after it constructs the translations.</li></ul><br><span style="font-weight: bold;">Other</span><br><br>- The leaf image was downloaded from google image search.<br>-
+ImageMosaic class is a&nbsp;modified class from the previous project.
+So the steps&nbsp;4-7 below are same as it was in the previous project<hr style="width: 100%; height: 2px;"><big><span style="font-weight: bold;">Implementation (Algorithm)<br></span></big><hr style="width: 100%; height: 2px;"><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span style="font-weight: bold; text-decoration: underline;"></span><span style="font-weight: bold;"></span>The algorithm is mainly the following steps:<br>1. Find the phase correlation<br>2. Find the peak in the correlation and identify the translation<br>3. Initialize the transformations<br>4. Construct transformations to the target image<br>5. Perform contrast correction<br>6. Identify the bounding box<br>7. Resample, interpolate, perform feathering and construct the final image.<br><br><span style="font-weight: bold;">Find the phase correlation</span><br><br>Phase
+correlation gives us the XY displacement when applied on a pair of
+overlapping in-plane images. Phase correlation is calculated using the
+formula<br><br><img style="width: 303px; height: 45px;" alt="" src="images/PC_formula.png"><br><br>H(u,v)
+is a low pass filter to remove the high frequency components and noise.
+I use the buttersworth low pass filter (which was already given) for
+this.<br><br>phaseCorrelation(f,g) function finds the phase correlation for the images f and g.<br><br><span style="font-weight: bold;">Find the peak in the correlation and identify the translation</span><br><br>Whenever
+the two images are identical in content and purely related by planar
+(X,Y) translation, then finding the phase correlation between the
+images gives us a delta function centered around the displacement
+(X,Y). So to find this peak I use an user input threshold value and
+find the position of the highest intensity above this threshold. If no
+such intensity exist then there is no overlap. If we find a position
+then translation is calculated.<br><br>Because phase correlation in the
+image domain allows for wrap around,
+there is an ambiguity in the meaning of a phase correlation peak. To
+resolve this ambiguity I use the first strategy, which is to pad the
+image to be more than twice as big as the inputs in every direction.
+If I get peaks that are bigger than half the padded image, then I
+know that these result from the wrap around of the image in that
+direction. To pad the images I use the average intensity value of the
+image, as it seemed to give good final results.<br><br>Below is a sample of the phase correlation between the images 0001.005 and 0001.006 from the given set.<br><br>Original
+images are of size 510x510. These were resized to 512x512, and then
+doubled in each direction, resizing to 1024x1024. We can see that the
+peak is in the mid right most corner of the image. This means that the
+result is a wrap around in the horizontal direction, so I subtract the
+X value from 1024 to get the actual displacement. Since the Y is within
+the range of image it not wrap around in Y direction, so it is used as
+is.<br><img style="width: 1024px; height: 1024px;" alt="" src="images/phasecorrelation.png"><br><br><span style="font-weight: bold;">Initialize the transformation</span><br><br>From
+the above step we get the translation (X,Y) to translate image "f" to
+the domain of "g". Since this is only translation, I can construct the
+perspective transformation matrix just by replacing the translation
+part. The transformation equation is given as below: <br><br><img style="width: 200px; height: 73px;" alt="" src="images/translation.png"><br><br>Using
+this matrix I construct the transformations like I did the last time.
+i.e. I take the displacements I got from phase correlation analysis and
+use those to construct the perspective transformation and inverse
+perspective transformation.<br><br>Note:
+Although there is a class InversePerspective to handle the inverse
+transformation, I use the class Perspective even for inverse
+transformation as the class WarpType could not take 2 type of classes,
+even when I use just Transform and it was just small addition of code
+in class Perspective to do both work.<br><br><span style="font-weight: bold;">Construct transformations to the target image (cascading)</span><br><br>This
+is basically cascading the existing transformations. We need to do this
+since we need transformations from and to target images domain. To do
+this I use dijkstra's shortest path algorithm with the target image as
+the source. This gives me the path to every other from the target
+image. This enables me to go back and forth from any image space to the
+domain of target image. <br><br>Dijkstra's algorithm is implemented in dijkstras() function and the cascading is done in the last part of initTransformations().<br><br><span style="font-weight: bold;">Perform contrast correction</span><br><br>To
+componsate for different contrasts in images (happens because of
+different exposures of the camera) we do the contrast correction. The
+idea here is to find the overlapping regions between images,
+identifying the mean intensity and adding/subtracting the difference of
+the mean between the images to one of the images (if one image has
+already been through contrast correction, that image will not again
+have its contrast corrected but the other image is corrected to match
+it).<br><br>This is implemented in correctContrast() function.<br><br><span style="font-weight: bold;">Identify bounding box<br><br></span>I
+take the transformation of the corners of each image and find the
+minimum and maximum extent of the composite images, push them to
+positive and we have the final image size. This is implemented in
+initFinalImageSize().<br><br><span style="font-weight: bold;">Resample, interpolate, perform feathering and construct the final image</span><br><br>For
+this I loop through each pixel in the final image and perform an
+inverse transform. The final image gets the interpolated intensity
+value for that image. For the overlapping regions, since we have
+multiple intensities affecting a pixel in the target image's domain, we
+can either average the intensity values or perform feathering.
+Feathering removes the seams from the composite image. The idea here is
+to weigh the different intensities by how far it is from the center of
+the image and then assign the weighted average of these intensities. I
+have implemented an euclidean distance method, whereas you can have any
+distance function (block/chessboard). <br><br>The compositing of the images is implemented in computeMosaic() function.<br><br><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><hr style="width: 100%; height: 2px;"><span style="font-weight: bold;"><big>Experiments with the algorithm</big><br></span><hr style="width: 100%; height: 2px;">Given set of images<br><br><img style="width: 510px; height: 510px;" alt="" src="images/0001.000.png">&nbsp;<img style="width: 510px; height: 510px;" alt="" src="images/0001.001.png"> &nbsp;<img style="width: 510px; height: 510px;" alt="" src="images/0001.002.png">&nbsp;<img style="width: 510px; height: 510px;" alt="" src="images/0001.004.png"> &nbsp;<img style="width: 510px; height: 510px;" alt="" src="images/0001.005.png">&nbsp;<img style="width: 510px; height: 510px;" alt="" src="images/0001.006.png"><br><br>Output mosaic for threshold = 0.001, cutoff frequency = 30 and order = 1<br><br>Butterworth low pass filter<br><img style="width: 1024px; height: 1024px;" alt="" src="images/bw_30_1_1024.png"><br><br>Mosaic<br><img style="width: 873px; height: 1294px;" alt="" src="images/output_mosaic_30D_1n_0.001.png"><br><br><br>Output mosaic for threshold = 0.0004, cutoff frequency = 30 and order = 2<br><br>Butterworth low pass filter<br><br><img style="width: 1024px; height: 1024px;" alt="" src="images/bw_30_2_1024.png"><br><br>Mosaic<br><br><img style="width: 872px; height: 1294px;" alt="" src="images/output_mosaic_30_2.png"><br><br><br><br>Output mosaic for threshold = 0.001, cutoff frequency = 50 and order = 2<br><br>Butterworth low pass filter<br><br><img style="width: 1024px; height: 1024px;" alt="" src="images/bw_50_2.png"><br><br>Mosaic<br><br><img style="width: 872px; height: 1293px;" alt="" src="images/output_mosaic_50_2_0.001.png"><br><br><br>Output mosaic for threshold = 0.0, cutoff frequency = 50 and order = 1<br><br>Butterworth low pass filter<br><br><img style="width: 1024px; height: 1024px;" alt="" src="images/bw_50_1.png"><br><br>Mosaic<br><br><img style="width: 873px; height: 1294px;" alt="" src="images/output_mosaic_50_1_0.png"><br><br><span style="font-weight: bold;">These are the set of images that I cut from an image I downloaded from internet.</span><br><br><img style="width: 954px; height: 750px;" alt="" src="images/my1.png"> <img style="width: 900px; height: 748px;" alt="" src="images/my2.png"> <img style="width: 948px; height: 678px;" alt="" src="images/my3.png"> <img style="width: 896px; height: 696px;" alt="" src="images/my4.png"><br><br>Here's&nbsp;my output mosaic with 30 cutoff frequency and an order of 1 and the threshold is 0.0004<br><br><img style="width: 1651px; height: 1199px;" alt="" src="images/my_mosaic_30D_1n_0.0004.png"><br><br>Conclusions<br><br>- Different butterworth filter only requires the threshold to be changed<br>-
+Threshold should not be high enough to ignore even 1 path to the target
+image, this would hang the program as the dikjistra's algorithm goes to
+infinite loop<br>- When threshold is low enough to allow any pair of
+images to have phase correlation peak, the output mosaic seems to get a
+little blurred.<br><br><hr style="width: 100%; height: 2px;"><p style="margin-bottom: 0in;"><span style="font-weight: bold;">Reference</span></p><p style="margin-bottom: 0in;">Digital Image Processing, Gonzalez &amp; Woods<br>An introdunction to image mosaicing, Sevket Gumustekin</p></body></html>

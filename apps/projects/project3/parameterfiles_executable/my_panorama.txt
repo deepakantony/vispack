@@ -1,0 +1,88 @@
+// comments are given with c++ style
+// keywords specify the type of data you should get from each item
+//  Upper half of this matrix gives correspondences
+(CORRESPONDENCE_MATRIX  3 3
+0.0 1.0 0.0
+0.0 0.0 1.0
+0.0 0.0 0.0
+)
+// For the number of images specified above 0..N-1, each one 
+// has a file name, given by a string
+(IMAGE_FILE_0 "STA_0215.tiff")
+(IMAGE_FILE_1 "STB_0216.tiff")
+(IMAGE_FILE_2 "STC_0217.tiff")
+//  For each 1 entry in the correpondence matrix there is 
+// control point, and it corresponds the the same point in the
+// sister matrix
+//
+// 0 to 1 correspondences
+(CORRESPONDENCES_0_1 13 2
+388 297
+414 300
+356 296
+369 278
+377 310
+457 354
+561 300
+471 291
+441 287
+508 10
+522 28
+546 68
+518 185
+)
+// 1 to zero correspondences
+(CORRESPONDENCES_1_0 13 2
+58 291 
+86 292
+24 293
+38 272
+48 306
+132 342
+230 283
+145 279
+116 276
+167 2
+181 21
+205 61
+191 175
+)
+// 1 to 2 correspondences
+(CORRESPONDENCES_1_2 13 2
+571 154
+540 164
+574 214
+492 157
+464 342
+570 363
+472 212
+573 243
+518 332
+475 16
+505 84
+444 239
+510 351
+)
+// 2 to 1 correspondences
+(CORRESPONDENCES_2_1 13 2
+202 162
+173 171
+204 219
+127 163
+99 348
+201 361
+104 216
+203 247
+153 336
+112 16
+140 88
+77 243
+144 355
+)
+// this gives the image domain into which the others should be mapped.
+// I.e. the mosaic is from this point of view.
+(TARGET_IMAGE 2)
+// This is the file name for the output.  Could be anything indicated 
+// by this string
+(OUTPUT_FILE_NAME "mosaic_out_2V_13.fts")
+

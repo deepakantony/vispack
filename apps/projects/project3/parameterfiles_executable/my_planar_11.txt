@@ -1,0 +1,50 @@
+// comments are given with c++ style
+// keywords specify the type of data you should get from each item
+//  Upper half of this matrix gives correspondences
+(CORRESPONDENCE_MATRIX  2 2
+0.0 1.0
+0.0 0.0
+)
+// For the number of images specified above 0..N-1, each one 
+// has a file name, given by a string
+(IMAGE_FILE_0 "SC_0.tiff")
+(IMAGE_FILE_1 "SC_1.tiff")
+//  For each 1 entry in the correpondence matrix there is 
+// control point, and it corresponds the the same point in the
+// sister matrix
+//
+// 0 to 1 correspondences
+(CORRESPONDENCES_0_1 11 2
+334 22
+437 330
+317 148
+431 312
+435 201
+364 446
+324 450
+434 137
+319 330
+317 359
+323 353
+)
+// 1 to zero correspondences
+(CORRESPONDENCES_1_0 11 2
+29 13
+132 320
+12 139
+126 303
+130 192
+59 437
+19 441
+129 128
+14 321
+12 350
+18 344
+)
+// this gives the image domain into which the others should be mapped.
+// I.e. the mosaic is from this point of view.
+(TARGET_IMAGE 1)
+// This is the file name for the output.  Could be anything indicated 
+// by this string
+(OUTPUT_FILE_NAME "mosaic_out_1V_11.tif")
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Project 5 - Image Processing - CS6640 - Deepak Antony</title></head>
+<body><big><big><big>Project 5 - Image Processing - CS6640</big><br><small>Deepak Antony<br>dab@cs.utah.edu<br>U0561285</small></big></big><br><hr style="width: 100%; height: 2px;"><big><span style="font-weight: bold;">Running the project</span></big><p style="margin-bottom: 0in;">The project was created in
+the vispack tree as required and is compiled same way vispack-build
+directory is compiled.&nbsp;</p><p style="margin-bottom: 0in;">In
+this project I have separated the edge detector, hough transform with
+known radius and HT for any radius main functions. So these could be
+run independently.</p><br>Here's an example of sample run (numbers/words in bold &amp; underlined are user inputs):<br><br style="font-weight: bold;"><span style="font-weight: bold;">Edge Detector</span>:<br>Usage: &lt;program&gt; &lt;image&gt; &lt;median-window-size&gt;
+&lt;median-iterations&gt; &lt;sigma&gt; &lt;threshold&gt;
+&lt;output_filename&gt;<br><br>&lt;program&gt; : edgedetector<br>&lt;image&gt; : path of the image file<br>&lt;median-window-size&gt; : a positive odd number taken as the window size for the median filter.<br>&lt;median-iterations&gt; : number of iterations to run this median filter. This should always be &gt;= 1.<br>&lt;sigma&gt; : sigma value for the guassian filter<br>&lt;threshold&gt;
+: threshold is multiplied by the max value of the LOG of the image.
+Only values above this will be considered for the zero crossings. This
+value should be between 0 and 1.<br>&lt;output_filename&gt; : this is an optional parameter that gives the path to write the ouput file.<br><br>Sample run:<br><small style="font-style: italic; font-family: Courier New,Courier,monospace;">/vispack-build/apps/projects/project5$ ./edgedetector surface_mount.tif 3 3 1 0.001 edge_sm_3_3_1_0.001.tif<br>laplacian of I, max: 312.656, min: -56.4023<br><br></small><span style="font-weight: bold;">Hough Tranform with radius given:</span><br>Usage: &lt;program&gt; &lt;image&gt; &lt;median-window-size&gt;
+&lt;median-iterations&gt; &lt;sigma&gt; &lt;threshold&gt;
+&lt;radius&gt; &lt;grey-value&gt; &lt;ht-threshold&gt;
+&lt;output_filename&gt;<br><br>&lt;program&gt; : htwithradius<br>&lt;image&gt; : path of the image file<br>&lt;median-window-size&gt; : a positive odd number taken as the window size for the median filter.<br>&lt;median-iterations&gt; : number of iterations to run this median filter. This should always be &gt;= 1.<br>&lt;sigma&gt; : sigma value for the guassian filter<br>&lt;threshold&gt;
+: threshold is multiplied by the max value of the LOG of the image.
+Only values above this will be considered for the zero crossings. This
+value should be between 0 and 1. This is the threshold for the gradient
+as required by the project.<br>&lt;radius&gt; : radius of the circle<br>&lt;grey-value&gt;
+: this is the grey value of the circle that is finally drawn over the
+initial image. This value should be between 0 and 255 including both
+values.<br>&lt;ht-threshold&gt; : this is the threshold value for the
+hough transform. This&nbsp;is multiplied with the maximum value of the
+accumulator. Only the values above this new value will be the final
+circles. This value should be between 0 and 1.<br>&lt;output_filename&gt; : this is an optional parameter that gives the path to write the ouput file.<br><small style="font-style: italic; font-family: Courier New,Courier,monospace;">vispack-build/apps/projects/project5$
+./htwithradius surface_mount_sm.tif 3 3 3 0.0005 10 0 0.8
+ht_sm_sm_3_3_3_0.0005_10_0_0.8.tif<br>laplacian of I, max: 337.304, min: -6.71097<br>Accumulator size initialized!<br>Accumulator set up!<br>Accumulator data is updated.<br>Number of circles found: 6<br>Found the circles from accumulator.<br></small><br><span style="font-weight: bold;">Hough Transform for a range of radii:</span><br>Usage: &lt;program&gt; &lt;image&gt; &lt;median-window-size&gt;
+&lt;median-iterations&gt; &lt;sigma&gt; &lt;threshold&gt;
+&lt;min-radius&gt; &lt;max-radius&gt; &lt;radius-step&gt;
+&lt;grey-value&gt; &lt;ht-threshold&gt; &lt;output_filename&gt;<br><br>&lt;program&gt; : htnoradius<br>&lt;image&gt; : path of the image file<br>&lt;median-window-size&gt; : a positive odd number taken as the window size for the median filter.<br>&lt;median-iterations&gt; : number of iterations to run this median filter. This should always be &gt;= 1.<br>&lt;sigma&gt; : sigma value for the guassian filter<br>&lt;threshold&gt;
+: threshold is multiplied by the max value of the LOG of the image.
+Only values above this will be considered for the zero crossings. This
+value should be between 0 and 1. This is the threshold for the gradient
+as required by the project.<br>&lt;min-radius&gt; : the minimum radius to start with<br>&lt;max-radius&gt; : the maximum radius values<br>&lt;radius-step&gt; : steps to take, to loop from minimum to maximum radius<br>&lt;grey-value&gt;
+: this is the grey value of the circle that is finally drawn over the
+initial image. This value should be between 0 and 255 including both
+values.<br>&lt;ht-threshold&gt; : this is the threshold value for the
+hough transform. This&nbsp;is multiplied with the maximum value of the
+accumulator. Only the values above this new value will be the final
+circles. This value should be between 0 and 1.<br>&lt;output_filename&gt; : this is an optional parameter that gives the path to write the ouput file.<br><br><small style="font-style: italic; font-family: Courier New,Courier,monospace;">vispack-build/apps/projects/project5$
+./htnoradius surface_mount_sm.tif 3 3 3.0 0.0005 10 37 9 0 0.9
+htn_sm_sm_3_3_3_0.0005_10_37_9_0_0.9.tif<br>laplacian of I, max: 337.304, min: -6.71097<br>Min radius: 10<br>Max radius: 37<br>Radius step: 9<br>Performing HT for radius: 10<br>Accumulator size initialized!<br>Accumulator set up!<br>Accumulator data is updated.<br>Number of circles found: 3<br>Found the circles from accumulator.<br>Performing HT for radius: 19<br>Accumulator size initialized!<br>Accumulator set up!<br>Accumulator data is updated.<br>Number of circles found: 2<br>Found the circles from accumulator.<br>Performing HT for radius: 28<br>Accumulator size initialized!<br>Accumulator set up!<br>Accumulator data is updated.<br>Number of circles found: 3<br>Found the circles from accumulator.<br>Performing HT for radius: 37<br>Accumulator size initialized!<br>Accumulator set up!<br>Accumulator data is updated.<br>Number of circles found: 2<br>Found the circles from accumulator.<br></small><br><big><span style="font-weight: bold;">Code organization</span></big><br><ul><li>This project I have used mostly C-style structured development.</li><li>edgedetector.h
+&amp; edgedetector.cxx have the marr-hildreth edge detection algorithm
+implemented and also the zero crossing algorithm.</li><li>houghtransform.h &amp; houghtransform.cxx have funcitions to perform hough transform to detect circles in the image</li><li>edgedetector.cxx,
+htwithradius.cxx and htmanyradius.cxx contain the main functions for
+performing edge detection, finding circles given radius and finding
+circles for multiple radius' respectively.</li></ul><span style="font-weight: bold;">Notes</span><br><br>- Images were downloaded from google images search.<br>- Median filter used in this project is the one provided in vispack library.<br><br><hr style="width: 100%; height: 2px;"><big><span style="font-weight: bold;">Median Filter<br></span></big><hr style="width: 100%; height: 2px;"><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span style="font-weight: bold; text-decoration: underline;"></span><span style="font-weight: bold;"></span>The
+median filter is a non-linear&nbsp;filtering technique,&nbsp;used to
+remove noise from images. Basic idea is to assign the median of the
+neighbourhood to the center pixel. Below are few outputs with different
+iterations and window size. The filter removed noise in the first
+iteration itself. But the edges are sharper with more iterations.<br><br>Original Image<br><img style="width: 324px; height: 289px;" alt="" src="images/surface_mount_sm.png"><br><br>Window size = 3x3<br><table style="text-align: left; width: 251px; height: 69px;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><img style="width: 324px; height: 289px;" alt="" src="images/median_1it_3win.png"><br>1 iteration</td><td><img style="width: 324px; height: 289px;" alt="" src="images/median_2it_3win.png"><br>2 iterations</td><td><img style="width: 324px; height: 289px;" alt="" src="images/median_3it_3win.png"><br>3 iterations</td></tr></tbody></table><br>Window size = 5x5<br><table style="text-align: left; width: 251px; height: 69px;" border="0" cellpadding="2" cellspacing="2"><tbody><tr><td><img style="width: 324px; height: 289px;" alt="" src="images/median_1it_5win.png"><br>1 iteration</td><td><img style="width: 324px; height: 289px;" alt="" src="images/median_2it_5win.png"><br>2 iterations</td><td><img style="width: 324px; height: 289px;" alt="" src="images/median_3it_5win.jpg"><br>3 iterations</td></tr></tbody></table> <hr style="width: 100%; height: 2px;"><big><span style="font-weight: bold;">Marr-Hildreth edge detection<br></span></big><hr style="width: 100%; height: 2px;"><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span style="font-weight: bold; text-decoration: underline;"></span>The
+Marr-Hildreth algorithm is a method of detecting edges in digital
+images,
+that is continuous curves where there are strong and rapid variations
+in image brightness. The Marr-Hildreth edge detection method is simple
+and operates by convolving the image with the Laplacian of the Gaussian
+function, or, as a fast approximation by Difference of Gaussians. Then,
+zero-crossings are detected in the filtered result to obtain the edges.<br><br>"edgedetector" applies the edge detection algorithm on the image and produces single-pixel edge images.<br><br>Usage:
+&lt;program&gt; &lt;image&gt; &lt;median-window-size&gt;
+&lt;median-iterations&gt; &lt;sigma&gt; &lt;threshold&gt;
+&lt;output_filename&gt;<br><br>&lt;program&gt; : edgedetector<br>&lt;image&gt; : path of the image file<br>&lt;median-window-size&gt; : a positive odd number taken as the window size for the median filter.<br>&lt;median-iterations&gt; : number of iterations to run this median filter. This should always be &gt;= 1.<br>&lt;sigma&gt; : sigma value for the guassian filter<br>&lt;threshold&gt;
+: threshold is multiplied by the max value of the LOG of the image.
+Only values above this will be considered for the zero crossings. This
+value should be between 0 and 1. This is the threshold for the gradient
+as required by the project.<br>&lt;output_filename&gt; : this is an optional parameter that gives the path to write the ouput file.<br><br>Below are the results from this algorithm.<br><br>Original Image<br><img style="width: 512px; height: 512px;" alt="" src="images/surface_mount.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 1; threshold: 0.001)<br><img style="width: 512px; height: 512px;" alt="" src="images/edge_sm_3_3_1_0.001.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.001)<br><img style="width: 512px; height: 512px;" alt="" src="images/edge_sm_3_3_3_0.001.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 4; threshold: 0.001)<br><img style="width: 512px; height: 512px;" alt="" src="images/edge_sm_3_3_4_0.001.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 4; threshold: 0.0)<br><img style="width: 512px; height: 512px;" alt="" src="images/edge_sm_3_3_4_0.0.png"><br><br>Original Image<br><img style="width: 469px; height: 410px;" alt="" src="images/colorful_circles.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 2; threshold: 0.0005)<br><img style="width: 469px; height: 410px;" alt="" src="images/edge_cc_3_3_2_0.0005.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0005)<br><img style="width: 469px; height: 410px;" alt="" src="images/edge_cc_3_3_3_0.0005.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 4; threshold: 0.0005)<br><img style="width: 469px; height: 410px;" alt="" src="images/edge_cc_3_3_4_0.0005.png"><br><hr style="width: 100%; height: 2px;"><big><span style="font-weight: bold;">Hough Transform<br></span></big><hr style="width: 100%; height: 2px;"><span style="font-weight: bold;"></span><span style="font-weight: bold;"></span><span style="font-weight: bold; text-decoration: underline;"></span><span style="font-weight: bold;"></span>The purpose of this technique is to find imperfect instances of objects
+within a certain class of shapes by a voting procedure. This voting
+procedure is carried out in a parameter space, from which object
+candidates are obtained as local maxima in a so-called accumulator
+space that is explicitly constructed by the algorithm for computing the
+Hough transform.<br><br><small>-&nbsp; if we know the radius of a circle
+  and we blur the accumulator space (which consists of all translations) 
+resulting from an edge detector, that this space gives the same
+result as if we had convolved a blurred version of a circle with the
+edge image.  
+<br><br style="font-style: italic;"><span style="font-style: italic;">Proof:<br>&nbsp;&nbsp;&nbsp; Since, accumulatorSpace = CircleTemplate &#9675; EdgeImage</span><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp; We have, </span><span style="font-style: italic;">BurringFilter &#9675; accumulatorSpace = BurringFilter &#9675; CircleTemplate &#9675; EdgeImage</span><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; = (BurringFilter &#9675;
+CircleTemplate) &#9675; EdgeImage<br>Thus the above statement is true.</span></small><br><br>- Basic algorithm of hough transform for detecting circles of any radius is as follows<br><small><span style="font-style: italic;">HoughCircles(I)</span><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp; setup a 3-D accumulator array Acc[x', y', p] and intialize to 0</span><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp; for all image coordinates (u,v) do</span><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if I(u,v) is an edge point then</span><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; for all radius p'</span><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if (x,y) is on
+the circumference of the circle with center (u,v) and radius p' then</span><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; increment Acc[x,y,p'] </span><br style="font-style: italic;"><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp; MaxCircles &lt;-- FindMaxCircles(Acc) [returns a list of tuples (x', y', p)</span><br style="font-style: italic;"><span style="font-style: italic;">&nbsp;&nbsp;&nbsp; return MaxCircles</span></small><br><br>- Bias problem:<br>Smaller
+circles will have lesser edge pixels than the larger pixels and so the
+accumulator will have higher values for larger circles. One way to
+compensate for this is to store another array similar to accumulator
+that stores the maximum number of image points for each accumulator
+entry. Dividing the accumulator with this maxhit array will normalize
+it. Since this projects aim is not to find half circles, I just looped
+through the single radius algorithm for finding multiple radius.<br><br>- Analysing the accumulator array:<br>I have implemented the non-maximum suppression method along with threshold to find the final circles.<br><br>The main function for this program is in "htwithradius.cxx".<br><br>The syntax to run this main program is as follows<br><br>Usage:
+&lt;program&gt; &lt;image&gt; &lt;median-window-size&gt;
+&lt;median-iterations&gt; &lt;sigma&gt; &lt;threshold&gt;
+&lt;radius&gt; &lt;grey-value&gt; &lt;ht-threshold&gt;
+&lt;output_filename&gt;<br><br>&lt;program&gt; : htwithradius<br>&lt;image&gt; : path of the image file<br>&lt;median-window-size&gt; : a positive odd number taken as the window size for the median filter.<br>&lt;median-iterations&gt; : number of iterations to run this median filter. This should always be &gt;= 1.<br>&lt;sigma&gt; : sigma value for the guassian filter<br>&lt;threshold&gt;
+: threshold is multiplied by the max value of the LOG of the image.
+Only values above this will be considered for the zero crossings. This
+value should be between 0 and 1. This is the threshold for the gradient
+as required by the project.<br>&lt;radius&gt; : radius of the circle<br>&lt;grey-value&gt;
+: this is the grey value of the circle that is finally drawn over the
+initial image. This value should be between 0 and 255 including both
+values.<br>&lt;ht-threshold&gt; : this is the threshold value for the
+hough transform. This&nbsp;is multiplied with the maximum value of the
+accumulator. Only the values above this new value will be the final
+circles. This value should be between 0 and 1.<br>&lt;output_filename&gt; : this is an optional parameter that gives the path to write the ouput file.<br><br>Below are the output from this code<br><br>Original Image<br><img style="width: 512px; height: 512px;" alt="" src="images/surface_mount.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 4; threshold: 0.0001)<br><img style="width: 512px; height: 512px;" alt="" src="images/edge_ht_sm_3_3_4_0.0001.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 4; threshold: 0.0001; radius: 13; grey-value: 0; ht-threshold: 0.8)<br><img style="width: 512px; height: 512px;" alt="" src="images/ht_sm_3_3_4_0.0001_13_0_0.8.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 4; threshold: 0.0005)<br><img style="width: 512px; height: 512px;" alt="" src="images/edge_ht_sm_3_3_4_0.0005.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 4; threshold: 0.0005; radius: 17; grey-value: 0; ht-threshold: 0.7)<br><img style="width: 512px; height: 512px;" alt="" src="images/ht_sm_3_3_4_0.0005_17_0_0.7.png"><br><br>Original Image<br><img style="width: 324px; height: 289px;" alt="" src="images/surface_mount_sm.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0001)<br><img style="width: 324px; height: 289px;" alt="" src="images/edge_ht_sm_sm_3_3_3_0.0001.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0001; radius: 10; grey-value: 0; ht-threshold: 0.8)<br><img style="width: 324px; height: 289px;" alt="" src="images/ht_sm_sm_3_3_3_0.0001_10_0_0.8.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0001; radius: 10; grey-value: 0; ht-threshold: 0.9)<br><img style="width: 324px; height: 289px;" alt="" src="images/ht_sm_sm_3_3_3_0.0001_10_0_0.9.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0005)<br><img style="width: 324px; height: 289px;" alt="" src="images/edge_ht_sm_sm_3_3_3_0.0005.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0005; radius: 37; grey-value: 0; ht-threshold: 0.7)<br><img style="width: 324px; height: 289px;" alt="" src="images/ht_sm_sm_3_3_3_0.0005_37_0_0.7.png"><br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0005; radius: 37; grey-value: 0; ht-threshold: 0.8)<br><img style="width: 324px; height: 289px;" alt="" src="images/ht_sm_sm_3_3_3_0.0005_37_0_0.8.png"><br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0005; radius: 36; grey-value: 0; ht-threshold: 0.7)<br><img style="width: 324px; height: 289px;" alt="" src="images/ht_sm_sm_3_3_3_0.0005_36_0_0.7.png"><br><br><br>Original Image<br><img style="width: 400px; height: 399px;" alt="" src="images/World-Of-Circles.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0005)<br><img style="width: 400px; height: 399px;" alt="" src="images/edge_ht_woc_3_3_3_0.0005.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0005; radius: 77; grey-value: 0; ht-threshold: 0.7)<br><img style="width: 400px; height: 399px;" alt="" src="images/ht_woc_3_3_3_0.0005_77_0_0.7.png"><br><br>Original Image<br><img style="width: 469px; height: 410px;" alt="" src="images/colorful_circles.png"><br><br>Edge image<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0005)<br><img style="width: 469px; height: 410px;" alt="" src="images/edge_ht_cc_3_3_3_0.0005.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 3; threshold: 0.0005; radius: 55; grey-value: 0; ht-threshold: 0.7)<br><img style="width: 469px; height: 410px;" alt="" src="images/ht_cc_3_3_3_0.0005_55_0_0.9.png"><br><br>Hough tranform for circles of a range of radii.<br><br>- I implemented this by allowing the user to enter the minimum and maximum radius and the step to move from minimum to maximum.<br>- So a loop over the single radius implementation would give me the result for this range of radii.<br>- We should note that this will not recognize the partial circles unbiased unless the partial circle falls above the threshold.<br><br>Below is the syntax to run this program<br><br>Usage:
+&lt;program&gt; &lt;image&gt; &lt;median-window-size&gt;
+&lt;median-iterations&gt; &lt;sigma&gt; &lt;threshold&gt;
+&lt;min-radius&gt; &lt;max-radius&gt; &lt;radius-step&gt;
+&lt;grey-value&gt; &lt;ht-threshold&gt; &lt;output_filename&gt;<br><br>&lt;program&gt; : htnoradius<br>&lt;image&gt; : path of the image file<br>&lt;median-window-size&gt; : a positive odd number taken as the window size for the median filter.<br>&lt;median-iterations&gt; : number of iterations to run this median filter. This should always be &gt;= 1.<br>&lt;sigma&gt; : sigma value for the guassian filter<br>&lt;threshold&gt;
+: threshold is multiplied by the max value of the LOG of the image.
+Only values above this will be considered for the zero crossings. This
+value should be between 0 and 1. This is the threshold for the gradient
+as required by the project.<br>&lt;min-radius&gt; : the minimum radius to start with<br>&lt;max-radius&gt; : the maximum radius values<br>&lt;radius-step&gt; : steps to take, to loop from minimum to maximum radius<br>&lt;grey-value&gt;
+: this is the grey value of the circle that is finally drawn over the
+initial image. This value should be between 0 and 255 including both
+values.<br>&lt;ht-threshold&gt; : this is the threshold value for the
+hough transform. This&nbsp;is multiplied with the maximum value of the
+accumulator. Only the values above this new value will be the final
+circles. This value should be between 0 and 1.<br>&lt;output_filename&gt; : this is an optional parameter that gives the path to write the ouput file.<br><br>Below are few results of this implementation.<br><br>Original Image<br><img style="width: 512px; height: 512px;" alt="" src="images/surface_mount.png"><br><br>Circles found<br>(median
+: 3x3, 3 iterations; sigma : 3; threshold: 0.0001; min-radius: 13;
+max-radius: 17; radius-step: 1; grey-value: 0; ht-threshold: 0.8)<br><img style="width: 512px; height: 512px;" alt="" src="images/htn_sm_3_3_3_0.0001_13_17_1_0_0.8.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 3; threshold:
+0.0001; min-radius: 13; max-radius: 36; radius-step: 23; grey-value: 0;
+ht-threshold: 0.8)<br><img style="width: 512px; height: 512px;" alt="" src="images/htn_sm_3_3_3_0.0001_13_36_23_0_0.8.png"><br><br>Original Image<br><img style="width: 324px; height: 289px;" alt="" src="images/surface_mount_sm.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 3; threshold:
+0.0005; min-radius: 10; max-radius: 37; radius-step: 9; grey-value: 0;
+ht-threshold: 0.9)<br><img style="width: 324px; height: 289px;" alt="" src="images/htn_sm_sm_3_3_3_0.0005_10_37_9_0_0.9.png"><br><br>Original Image<br><img style="width: 400px; height: 399px;" alt="" src="images/World-Of-Circles.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 3; threshold:
+0.0005; min-radius: 66; max-radius: 77; radius-step: 1; grey-value: 0;
+ht-threshold: 0.9)<br><img style="width: 400px; height: 399px;" alt="" src="images/htn_woc_3_3_3_0.0005_66_77_1_0_0.9.png"><br><br>Original Image<br><img style="width: 469px; height: 410px;" alt="" src="images/colorful_circles.png"><br><br>Circles found<br>(median : 3x3, 3 iterations; sigma : 3; threshold:
+0.0005; min-radius: 5; max-radius: 55; radius-step: 5; grey-value: 0;
+ht-threshold: 0.9)<br><img style="width: 469px; height: 410px;" alt="" src="images/htn_cc_3_3_3_0.0005_5_55_5_0_0.9.png"><br><br><hr style="width: 100%; height: 2px;"><p style="margin-bottom: 0in;"><span style="font-weight: bold;">References</span></p><p style="margin-bottom: 0in;">Digital Image Processing, Gonzalez &amp; Woods<br>Digital Image Processing, Burger &amp; Burge<br>http://en.wikipedia.org/wiki/Median_filter<br>http://en.wikipedia.org/wiki/Marr-Hildreth_algorithm<br>http://homepages.inf.ed.ac.uk/rbf/CVonline/LOCAL_COPIES/OWENS/LECT6/node2.html<br>http://en.wikipedia.org/wiki/Hough_transform</p></body></html>

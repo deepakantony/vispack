@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Project 1 - Image Processing - CS6640 - Deepak Antony</title>
+
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><meta name="GENERATOR" content="OpenOffice.org 2.4  (Linux)"><style type="text/css">
+	<!--
+		@page { size: 8.5in 11in; margin: 0.79in }
+		P { margin-bottom: 0.08in }
+	-->
+	</style><meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"><meta name="GENERATOR" content="OpenOffice.org 2.4  (Linux)"><style type="text/css">
+	<!--
+		@page { size: 8.5in 11in; margin: 0.79in }
+		P { margin-bottom: 0.08in }
+	-->
+	</style></head>
+<body><div style="text-align: left;"><font size="+2">Project 1 - Image Processing - CS6640<br>by Deepak Antony (dab@cs.utah.edu)</font><br></div><hr style="width: 100%; height: 2px;">
+
+
+	
+	
+	
+	
+
+<span style="font-weight: bold;">Running the project</span><p style="margin-bottom: 0in;">This
+project was done using the vispack
+library, as I know c++ better than matlab :) The project was created in
+the vispack tree as required and is compiled same way vispack-build
+directory is compiled.&nbsp;</p><p style="margin-bottom: 0in;">To
+run the project1 go to the directory where the executable is and type
+./project1 &lt;imagefile&gt;. After this there are 5 options in the
+menu, you can choose any operationand you might need to provide some
+inputs. Once the operation is complete the main menu is shown again, to
+quit, type 5 or Ctrl+c. To select a new image you need to rerun the
+project. </p><p style="margin-bottom: 0in;"><span style="font-weight: bold;">Histogram</span><br></p><span style="font-weight: bold;"><span style="font-weight: bold;"></span></span>
+
+
+	
+	
+	
+	
+
+<p style="margin-bottom: 0in;">I have implemented histogram(I, n, min,
+max) function that takes in image, number of bins and minimum and
+maximum intensity that should be considered, and gives out an array
+of floats (size n). The histogram created is not normalized.</p>
+
+<p style="margin-bottom: 0in;">Below are few examples of histograms
+constructed through this function. The graphs were constructed with google spreadsheet. 
+</p>
+<br>1. brain (256 bins, 0-255)<br><img style="width: 181px; height: 217px;" alt="" src="images/brain.jpg"><img style="width: 458px; height: 293px;" alt="" src="images/brain_100b_0-255.png"><br><br>2. shapenoise (50 bins, 0-100) because of the guassian we can figure out that the image has noise<br><img style="width: 351px; height: 310px;" alt="" src="images/shapes_noise.jpg"><img style="width: 443px; height: 289px;" alt="" src="images/shapenoise.png"><br><br>3. turkeys (256 bins, 0-255), infering from the histogram this image has a medium contrast<br><img style="width: 463px; height: 313px;" alt="" src="images/turkeys.jpg"><img style="width: 439px; height: 282px;" alt="" src="images/turkeys.png"><br><br>The
+following four images were taken from the book, they show the
+difference of histogram between a dark/light image and low/high
+contrast image.<br>4. dark image (256 bins, 0-255)<br><img style="width: 500px; height: 500px;" alt="" src="images/dark__image.jpg"><img style="width: 509px; height: 333px;" alt="" src="images/dark_image.png"><br><br>5. light image (256 bins, 0-255)<br><img style="width: 500px; height: 500px;" alt="" src="images/light_image.jpg"><img style="width: 424px; height: 278px;" alt="" src="images/light_image.png"><br><br>6. low contrast (256 bins, 0-255)<br><img style="width: 500px; height: 500px;" alt="" src="images/low_contrast.jpg"><img style="width: 465px; height: 323px;" alt="" src="images/low_contrast.png"><br><br>7. high contrast (256 bins, 0-255)<br><img style="width: 500px; height: 500px;" alt="" src="images/high_contrast.jpg"><img style="width: 474px; height: 336px;" alt="" src="images/high_contrast.png"><br><span style="font-weight: bold;"><span style="font-weight: bold;"><br>Dual Threshold<br><br></span></span>I
+have implemented dual threshold algorithm in threshold(I, min, max),
+which takes in image, min and max intensity that determine the
+foreground and returns the thresholded binary image.<br><br>Below are few examples of thresholded images<span style="font-weight: bold;"><span style="font-weight: bold;"><br><br></span></span>1. brain - the thresholded image is within min = 2 and max = 50 intensities.<span style="font-weight: bold;"><span style="font-weight: bold;"><br></span></span><img style="width: 181px; height: 217px;" alt="brain" src="images/brain.jpg"><img style="width: 181px; height: 217px;" alt="" src="images/DT_2-50.jpg"><br><br>2. shapenoise - thresholded with min = 25 and max = 100<br><img style="width: 351px; height: 310px;" alt="shape-noise" src="images/shapes_noise.jpg"><img style="width: 351px; height: 310px;" alt="" src="images/DT_25-150.jpg"><br><br>3. turkeys - thresholded with min = 100 and max = 255<br><img style="width: 463px; height: 313px;" alt="" src="images/turkeys.jpg"><img style="width: 463px; height: 313px;" alt="" src="images/DT_100-255.jpg"><br><br>More examples on thresholding shown in the section of connected components.<br><br><span style="font-weight: bold;"><span style="font-weight: bold;">Connected Components and floodfill<br><br></span></span>As
+required connected component function takes as input a binary image,
+starting label value, label image, and returns the revised label image
+(updates the label image passed), with new labels in the CCs for this
+binary map, and an ending label value as a return value. Another
+version of connected component function returns component info array
+containing size, neighbouring components label and along with its own
+label.<br><br>The
+above routines are called from component menu function. The component
+menu prompts the user to enter a set of threshold values within min and
+max. The connected components are constructed using these threshold
+values. For example, if the min and max intensity of an image is 25 and
+250 and the user enters 100 and 200, then there will be 3 &nbsp;binary
+images, one for 25-100, second one for 100-200 and the third one for
+200-250. The user can enter as many thresholds as he wants, as long as
+he enters the numbers within the range of min and max. There is not
+range check while taking the input so the program assumes that user
+enters the correct data.<br><br>I have written a small function to
+colorize the labeled image. It has 64 colors predefined and assigns
+randomly to all the components. This routine takes label image and its
+size and returns a colorized image of the components. The colors might
+be repeated as it contains only 64colors. <br><br>Below are few images with the colorized component image.<br><br>1.
+brain - In this case the user enters the thresholds 25, 100, 175 and
+225. Since the image's max intensity is only 221, only four thresholded
+images are created 0-25, 25-100, 100-175 and 175-221(max). The final
+colored image is the labeled image of all the components. There are 670
+components in this image. As I mentioned the colors might be repeated
+as I have predefined only 64 colors.<br><img style="width: 181px; height: 217px;" alt="brain" src="images/brain.jpg"><img style="width: 181px; height: 217px;" alt="" src="images/CC_25-100-175-225th_670C_TH_0.jpg"><img style="width: 181px; height: 217px;" alt="" src="images/CC_25-100-175-225th_670C_TH_1.jpg"><img style="width: 181px; height: 217px;" alt="" src="images/CC_25-100-175-225th_670C_TH_2.jpg"><img style="width: 181px; height: 217px;" alt="" src="images/CC_25-100-175-225th_670C_TH_3.jpg"><img style="width: 181px; height: 217px;" alt="" src="images/CC_25-100-175-225th_670C.jpg"><br><br>2.
+shapenoise - Here only one thresholded image is used, 120. There are
+498 components in the final image. You can see that this is mostly due
+to the small dots in the square.<br><img style="width: 351px; height: 310px;" alt="shape-noise" src="images/shapes_noise.jpg"><img style="width: 351px; height: 310px;" alt="" src="images/CC_120th_498C_TH_0.jpg"><img style="width: 351px; height: 310px;" alt="" src="images/CC_120th_498C_TH_1.jpg"><img style="width: 351px; height: 310px;" alt="" src="images/CC_120th_498C.jpg"><br><br>3.
+turkeys - only one threshold value (100) is used. There 437 components
+in this image and the last image shows the colorized labeled image.<br><img style="width: 463px; height: 313px;" alt="" src="images/turkeys.jpg"><img style="width: 463px; height: 313px;" alt="" src="images/CC_100th_437C_TH_0.jpg"><img style="width: 463px; height: 313px;" alt="" src="images/CC_100th_437C_TH_1.jpg"><img style="width: 463px; height: 313px;" alt="" src="images/CC_100th_437C.jpg"><br><br>4. 100 dollar note : This image was taken from the book's website. A threshold value of 100 was applied and got 6156 components!<br><img style="width: 1192px; height: 500px;" alt="" src="images/100-dollars.jpg"><br><img style="width: 1192px; height: 500px;" alt="" src="images/TD_D_TH_0_100.jpg"><br><img style="width: 1192px; height: 500px;" alt="" src="images/TD_D_TH_1_100.jpg"><br><img style="width: 1192px; height: 500px;" alt="" src="images/TD_label_cc_100.jpg"><br><span style="font-weight: bold;"><span style="font-weight: bold;"><br>Topological denoising<br><br></span></span>The
+denoise routine takes in the label image, the component size threshold,
+an array of all components info and the label size and returns a
+revised label image, in which all the components, whose size are
+smaller than the threshold is merged into its neighbor component.<br><br>Components
+info array also maintains the label of the component which is adjacent.
+The algorithm makes sure that this component is not of size &lt;=
+threshold size. If the only surrounding component is also another small
+component (size &lt;= threshold), then it takes the label of the bigger
+component that is adjacent to the surrounding component. For example if
+1, 2 and 3 are the labels and 1 is only surrounded by 2 and 2's size is
+small, then while denoising both 1 and 2 are assigned a label of 3.<br><br>The
+interaction with the user is same as that with the connected
+components, only this time, it will prompt for the component size
+threshold along with the intensity threshold values.<br><br>A
+better addition would be to enable partial merging. A component could
+share its boundary with 2 larger components but with the above
+algorithm the whole of the small component is dissolved into one large
+component. It would be better if the component could dissolve partially
+into both components.<br><br>Below are few images and the effect of topological denoising:<br><br>1.
+brain: First color image shows the result of connected component
+analysis. The last image shows the image after applying topological
+denoising algorithm with a size threshold of 50. We see that all the
+small components have merged into their bigger neighbors.<br><img style="width: 181px; height: 217px;" alt="" src="images/brain.jpg"><img style="width: 181px; height: 217px;" alt="" src="images/TD_100-200th_50s_481c_label_cc.jpg"><img style="width: 181px; height: 217px;" alt="" src="images/TD_100-200th_50s_481c_final.jpg"><br><br>2.
+shape-noise: The same threshold of 120 was applied to this image (as in
+connected component example) and the first color image shows the result
+of applying connected component analysis routine. The final image shows
+us that the noise inside the square is now gone.<br><img style="width: 351px; height: 310px;" alt="" src="images/shapes_noise.jpg"><img style="width: 351px; height: 310px;" alt="" src="images/TD_120th_498C_CC.jpg"><img style="width: 351px; height: 310px;" alt="" src="images/TD_120th_498C_final.jpg"><br><br>3.
+turkeys: Here a threshold of 50 and 225 was applied. The resulting
+components is shown below. The final image is after applying denoising
+routine on the labeled image.<br><img style="width: 463px; height: 313px;" alt="" src="images/turkeys.jpg"><img style="width: 463px; height: 313px;" alt="" src="images/TD_100-225th_100s_236c_label_cc.jpg"><img style="width: 463px; height: 313px;" alt="" src="images/TD_100-225th_100s_236c_final.jpg"><br><br>4. turkeys: With the same turkey image a threshold of 100 was applied. The resulting components is
+shown below. The final image is after applying denoising routine on the
+labeled image, we can see that the final image is much smoother.<br><img style="width: 463px; height: 313px;" alt="" src="images/turkeys.jpg"><img style="width: 463px; height: 313px;" alt="" src="images/TD_100th_100s_437c_label_cc.jpg"><img style="width: 463px; height: 313px;" alt="" src="images/TD_100th_100s_437c_final.jpg"><br><br>5.
+100-dollar note: Here's what we get when we apply denoising after
+component analysis on the 100-dollar image. The size threshold was 200.<br><img style="width: 1192px; height: 500px;" alt="" src="images/100-dollars.jpg"><br><img style="width: 1192px; height: 500px;" alt="" src="images/TD_label_cc_100.jpg"><br><img style="width: 1192px; height: 500px;" alt="" src="images/TD_final_100.jpg"><br><br><span style="font-weight: bold;"><span style="font-weight: bold;"></span></span>
+</body></html>

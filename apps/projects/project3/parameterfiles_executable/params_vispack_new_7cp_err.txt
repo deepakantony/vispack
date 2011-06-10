@@ -1,0 +1,90 @@
+// comments are given with c++ style
+// keywords specify the type of data you should get from each item
+//  Upper half of this matrix gives correspondences
+(CORRESPONDENCE_MATRIX  4 4
+0.0 1.0 1.0 1.0
+0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0
+0.0 0.0 0.0 0.0
+)
+// For the number of images specified above 0..N-1, each one 
+// has a file name, given by a string
+(IMAGE_FILE_0 "w0.fts")
+(IMAGE_FILE_1 "w1.fts")
+(IMAGE_FILE_2 "w2c.fts")
+(IMAGE_FILE_3 "w3c.fts")
+//  For each 1 entry in the correpondence matrix there is 
+// control point, and it corresponds the the same point in the
+// sister matrix
+//
+// This matrix is the set of points from image 3 that have corresponding 
+// points in image 0
+(CORRESPONDENCES_3_0 7 2
+// 7 correspondences with 2 coordinates each (it's a matrix)
+ 264 105
+ 369 84
+ 257 252
+ 367 239
+ 151 143
+ 146 241
+ 274 228
+ ) 
+// This matrix is the set of points from image 0 that have corresponding 
+// points in image 3, it has a sister matrix given above (must be same size)
+(CORRESPONDENCES_0_3 7 2
+ 134 10
+ 231 8
+ 132 128
+ 231 127
+ 13 22
+ 12 109
+ 148 110
+ )
+// 0 to 1 correspondences
+(CORRESPONDENCES_0_1 7 2
+434 6
+451 136
+540 125
+550 21
+421 110
+427 243
+561 245
+)
+// 1 to zero correspondences
+(CORRESPONDENCES_1_0 7 2
+81 72
+106 227
+210 203
+218 69
+75 196
+86 356
+241 355
+)
+// 0 to 2 correspondences
+(CORRESPONDENCES_0_2 7 2
+30 221
+16 362
+3 249
+2 340
+24 128
+17 235
+130 244 
+// error: y coord should be 234
+)
+// 2 to 0 correspondences
+(CORRESPONDENCES_2_0 7 2
+174 163
+155 317
+140 192
+139 293
+164 49
+159 178
+287 180
+)
+// this gives the image domain into which the others should be mapped.
+// I.e. the mosaic is from this point of view.
+(TARGET_IMAGE 0)
+// This is the file name for the output.  Could be anything indicated 
+// by this string
+(OUTPUT_FILE_NAME "mosaic_out_final_0V_7cp_err10.tif")
+

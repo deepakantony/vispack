@@ -1,0 +1,6 @@
+(THETA .50)
+(WIDTH 432)
+(HEIGHT 576)
+(SCALE 1.0)
+(OFFSET 0.0 0.0)
+(IMAGE_FILE "w0.fts")
